@@ -8,6 +8,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
+import Card from "../UI/Card";
 
 const ProductItem = (props) => {
   let TouchableCmp = TouchableOpacity;
@@ -15,7 +16,7 @@ const ProductItem = (props) => {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
-    <View style={styles.product}>
+    <Card style={styles.product}>
       <View style={styles.touchable}>
         <TouchableCmp onPress={props.onSelect} useForeground>
           <View>
@@ -26,13 +27,11 @@ const ProductItem = (props) => {
               <Text style={styles.title}>{props.title}</Text>
               <Text style={styles.price}>{props.price.toFixed(2)}</Text>
             </View>
-            <View style={styles.actions}>
-              {props.children}
-            </View>
+            <View style={styles.actions}>{props.children}</View>
           </View>
         </TouchableCmp>
       </View>
-    </View>
+    </Card>
   );
 };
 
@@ -47,6 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: 300,
     margin: 20,
+    overflow: "hidden",
   },
   touchable: {
     borderRadius: 10,
@@ -63,26 +63,27 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  details: {
-    alignItems: "center",
-    height: "25%",
-    padding: 10,
-  },
   title: {
     fontSize: 18,
     marginVertical: 2,
-    fontFamily: 'open-sans-bold'
+    fontFamily: "open-sans-bold",
   },
   price: {
     fontSize: 14,
     color: "#888",
-    fontFamily: 'open-sans'
+    fontFamily: "open-sans",
   },
   actions: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignContent: "center",
+    alignItems: "center",
+    height: "23%",
     paddingHorizontal: 20,
+  },
+  details: {
+    alignItems: "center",
+    height: "17%",
+    padding: 10,
   },
 });
 export default ProductItem;

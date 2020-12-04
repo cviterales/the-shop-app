@@ -12,7 +12,6 @@ import Colors from "../../constants/Colors";
 const ProductsOverviewScreen = (props) => {
   const products = useSelector((state) => state.products.availableProducts);
   const dispatch = useDispatch();
-
   const selectItemHandler = (id, title) => {
     props.navigation.navigate("ProductsDetail", {
       productId: id,
