@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   Button,
   StyleSheet,
   Platform,
+  ActivityIndicator,
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,8 +16,9 @@ import Card from "../../components/UI/Card";
 import * as cartActions from "../../store/actions/cart";
 import * as ordersActions from "../../store/actions/orders";
 
-
 const CartScreen = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => {
     const transformedCartItems = [];
@@ -35,20 +37,31 @@ const CartScreen = (props) => {
   });
 
   const dispatch = useDispatch();
+  const sendOrderHandler = async () => {
+    setIsLoading(true);
+    await dispatch(ordersActions.addOrder(cartItems, cartTotalAmount));
+    setIsLoading(false);
+  };
+
   return (
     <View style={styles.screen}>
       <Card style={styles.summary}>
         <Text style={styles.summaryText}>
-          Total: <Text style={styles.amount}>${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}</Text>
+          Total:{" "}
+          <Text style={styles.amount}>
+            ${Math.round(cartTotalAmount * 100) / 100}
+          </Text>
         </Text>
-        <Button
-          color={Colors.primary}
-          title="Order Now"
-          disabled={cartItems.length === 0}
-          onPress={() => {
-            dispatch(ordersActions.addOrder(cartItems, cartTotalAmount))
-          }}
-        />
+        {isLoading ? (
+          <ActivityIndicator size="small" color={Colors.primary} />
+        ) : (
+          <Button
+            color={Colors.primary}
+            title="Order Now"
+            disabled={cartItems.length === 0}
+            onPress={sendOrderHandler}
+          />
+        )}
       </Card>
       <FlatList
         data={cartItems}
@@ -68,8 +81,6 @@ const CartScreen = (props) => {
     </View>
   );
 };
-
-
 
 const styles = StyleSheet.create({
   screen: {
