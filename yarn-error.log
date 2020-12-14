@@ -1,5 +1,5 @@
 Arguments: 
-  D:\Desarrollo\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js add expp-font
+  D:\Desarrollo\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js add expo-linear-gradien
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Desarrollo\nodejs\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Desarrollo\git\Git\cmd;D:\Desarrollo\xampp\php;D:\Program Files (x86)\Yarn\bin\;C:\Users\Cristian\AppData\Local\Microsoft\WindowsApps;D:\Desarrollo\VisualCode\Microsoft VS Code\bin;C:\Users\Cristian\AppData\Roaming\npm;D:\Desarrollo\nodejs\npm;D:\Desarrollo\nodejs\npx;C:\Users\Cristian\AppData\Local\Android\Sdk\emulator;C:\Users\Cristian\AppData\Local\Android\Sdk\platform-tools;C:\Users\Cristian\AppData\Local\Yarn\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/expp-font: Not found
+  Error: https://registry.yarnpkg.com/expo-linear-gradien: Not found
       at Request.params.callback [as _callback] (D:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
       at Request.self.callback (D:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
       at Request.emit (events.js:311:20)
@@ -37,9 +37,12 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@expo/vector-icons": "^10.2.1",
       "@react-native-community/masked-view": "^0.1.10",
       "expo": "~39.0.2",
+      "expo-font": "^8.3.0",
       "expo-status-bar": "~1.0.2",
+      "moment": "^2.29.1",
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
@@ -48,10 +51,13 @@ npm manifest:
       "react-native-screens": "^2.10.1",
       "react-native-web": "~0.13.12",
       "react-navigation": "^4.4.3",
+      "react-navigation-drawer": "^2.6.0",
       "react-navigation-header-buttons": "^6.0.0",
       "react-navigation-stack": "^2.10.2",
       "react-redux": "^7.2.2",
-      "redux": "^4.0.5"
+      "redux": "^4.0.5",
+      "redux-devtools-extension": "^2.13.8",
+      "redux-thunk": "^2.3.0"
     },
     "devDependencies": {
       "@babel/core": "~7.9.0"
@@ -1086,7 +1092,7 @@ Lockfile:
       xcode "^3.0.0"
       xml-js "^1.6.11"
   
-  "@expo/vector-icons@^10.0.2":
+  "@expo/vector-icons@^10.0.2", "@expo/vector-icons@^10.2.1":
     version "10.2.1"
     resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.2.1.tgz#47fb2fa12d7ad601835babde6bd3ddea7f6fde89"
     integrity sha512-clYQZFLeU2y23n03hXg18EEsZS5c73sJJnfderztfSAqkUXkfUtv07fwuprYwbHIvgFkw6L7R6xJOCVYtS85iQ==
@@ -2537,7 +2543,7 @@ Lockfile:
     dependencies:
       uuid "^3.4.0"
   
-  expo-font@~8.3.0:
+  expo-font@^8.3.0, expo-font@~8.3.0:
     version "8.3.0"
     resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-8.3.0.tgz#f41955d1f1bbb2fe706bf97fc94aa89f7e599a0a"
     integrity sha512-WK3Oh3JwLjH/y94w1GPhE1Ix59WEJ9hTUKJBuvsM9SYqdN4N0DDb2VKhCH218HPdLURfyZnhMi2KrVycUWIUEQ==
@@ -4147,6 +4153,11 @@ Lockfile:
     dependencies:
       minimist "^1.2.5"
   
+  moment@^2.29.1:
+    version "2.29.1"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+    integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+  
   ms@2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4761,6 +4772,11 @@ Lockfile:
       use-subscription "^1.0.0"
       whatwg-fetch "^3.0.0"
   
+  react-navigation-drawer@^2.6.0:
+    version "2.6.0"
+    resolved "https://registry.yarnpkg.com/react-navigation-drawer/-/react-navigation-drawer-2.6.0.tgz#9f04ca26d074891af73d898bb9587a5e7aa879da"
+    integrity sha512-GvHHqH8Aw9yRpJ0xc/7sPxRoGs0CZu/01THRfwY+qzrP3mP/V0GeFnL5Y2+EFd5SLrKjbQho8GmP9SEX7xVrig==
+  
   react-navigation-header-buttons@^6.0.0:
     version "6.0.0"
     resolved "https://registry.yarnpkg.com/react-navigation-header-buttons/-/react-navigation-header-buttons-6.0.0.tgz#6e58d58b8aa6e2d058729ca8dad52c5ee5742f47"
@@ -4826,6 +4842,16 @@ Lockfile:
       safe-buffer "~5.1.1"
       string_decoder "~1.1.1"
       util-deprecate "~1.0.1"
+  
+  redux-devtools-extension@^2.13.8:
+    version "2.13.8"
+    resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+    integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
+  
+  redux-thunk@^2.3.0:
+    version "2.3.0"
+    resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+    integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
   
   redux@^4.0.5:
     version "4.0.5"
