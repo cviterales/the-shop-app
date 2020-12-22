@@ -1,5 +1,5 @@
 Arguments: 
-  D:\Desarrollo\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js add expo-linear-gradien
+  D:\Desarrollo\nodejs\node.exe D:\Program Files (x86)\Yarn\bin\yarn.js add @react-native-commumity/async-storage
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Desarrollo\nodejs\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Desarrollo\git\Git\cmd;D:\Desarrollo\xampp\php;D:\Program Files (x86)\Yarn\bin\;C:\Users\Cristian\AppData\Local\Microsoft\WindowsApps;D:\Desarrollo\VisualCode\Microsoft VS Code\bin;C:\Users\Cristian\AppData\Roaming\npm;D:\Desarrollo\nodejs\npm;D:\Desarrollo\nodejs\npx;C:\Users\Cristian\AppData\Local\Android\Sdk\emulator;C:\Users\Cristian\AppData\Local\Android\Sdk\platform-tools;C:\Users\Cristian\AppData\Local\Yarn\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/expo-linear-gradien: Not found
+  Error: https://registry.yarnpkg.com/@react-native-commumity%2fasync-storage: Not found
       at Request.params.callback [as _callback] (D:\Program Files (x86)\Yarn\lib\cli.js:66097:18)
       at Request.self.callback (D:\Program Files (x86)\Yarn\lib\cli.js:140749:22)
       at Request.emit (events.js:311:20)
@@ -41,6 +41,7 @@ npm manifest:
       "@react-native-community/masked-view": "^0.1.10",
       "expo": "~39.0.2",
       "expo-font": "^8.3.0",
+      "expo-linear-gradient": "^8.3.0",
       "expo-status-bar": "~1.0.2",
       "moment": "^2.29.1",
       "react": "16.13.1",
@@ -2555,6 +2556,11 @@ Lockfile:
     version "8.3.0"
     resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-8.3.0.tgz#11bb8073dfe453259926855c81d9f35db03a79b9"
     integrity sha512-zrMsvZLHColfSex5Yf6h5vw3mgJiG48FX36+fOXUqq/erCtDkqY2NB7PmhDaj6lWRJ0OuXa90uYXNveXBJyhfA==
+  
+  expo-linear-gradient@^8.3.0:
+    version "8.4.0"
+    resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-8.4.0.tgz#34e6f960b1971c57dacf7211c747ba490a76bf63"
+    integrity sha512-f9JOXaIl0MR8RBYRIud5UAsEi52oz81XhQs73VUpujemHjOyHmrZa6dqwf399YOwI/WBwbpcINcUIw/mCYE1mA==
   
   expo-linear-gradient@~8.3.0:
     version "8.3.1"
