@@ -161,8 +161,7 @@ const AuthScreen = (props) => {
     </KeyboardAvoidingView>
   );
 };
-
-AuthScreen.navigationOptions = {
+export const screenOptions = {
   headerTitle: "Authenticate",
 };
 
