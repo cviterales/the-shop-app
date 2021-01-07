@@ -46,7 +46,7 @@ const EditProductsScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const prodId = props.navigation.getParam("productId");
+  const prodId = props.route.params ? props.route.params.productId : null;
 
   const editedProduct = useSelector((state) =>
     state.products.userProducts.find((prod) => prod.id === prodId)
@@ -71,9 +71,9 @@ const EditProductsScreen = (props) => {
 
   useEffect(() => {
     if (error) {
-      Alert.alert("An error ocurred!", error, [{text: 'Okay'}])
+      Alert.alert("An error ocurred!", error, [{ text: "Okay" }]);
     }
-  }, [error])
+  }, [error]);
   const submitHandler = useCallback(async () => {
     if (!formState.formIsValid) {
       Alert.alert("Wrong input", "Please check the error in the form.", [
@@ -112,11 +112,22 @@ const EditProductsScreen = (props) => {
     }
 
     setIsLoading(false);
-
   }, [dispatch, prodId, formState]);
 
   useEffect(() => {
-    props.navigation.setParams({ submit: submitHandler });
+    props.navigation.setOptions({
+      headerRight: () => (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Save"
+            iconName={
+              Platform.OS === "android" ? "md-checkmark" : "ios-checkmark"
+            }
+            onPress={submitHandler}
+          />
+        </HeaderButtons>
+      ),
+    });
   }, [submitHandler]);
 
   const inputChangeHandler = useCallback(
@@ -204,22 +215,9 @@ const EditProductsScreen = (props) => {
 };
 
 export const screenOptions = (navData) => {
-  const submitFn = navData.navigation.getParam("submit");
+  const routeParams = navData.route.params ? navData.route.params : {};
   return {
-    headerTitle: navData.navigation.getParam("productId")
-      ? "Edit Product"
-      : "Add Product",
-    headerRight: () => (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Save"
-          iconName={
-            Platform.OS === "android" ? "md-checkmark" : "ios-checkmark"
-          }
-          onPress={submitFn}
-        />
-      </HeaderButtons>
-    ),
+    headerTitle: routeParams.productId ? "Edit Product" : "Add Product",
   };
 };
 
@@ -229,9 +227,9 @@ const styles = StyleSheet.create({
   },
   centered: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default EditProductsScreen;

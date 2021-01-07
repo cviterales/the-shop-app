@@ -25,8 +25,8 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer , applyMiddleware(ReduxThunk))
 
 
-const fetchFonts = async () => {
-  return await Font.loadAsync({
+const fetchFonts = () => {
+  return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Bold.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Regular.ttf')
   })
@@ -37,7 +37,8 @@ export default function App() {
   if (!fontLoaded) {
     return (<AppLoading startAsync={fetchFonts} onFinish={() => {
       setFontLoaded(true);
-    }}/>)
+    }}
+    onError={(err) => console.log(err)}/>)
   }
   return (
     <Provider store={store}>
